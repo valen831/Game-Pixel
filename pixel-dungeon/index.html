@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pixel Dungeon - Gua Kegelapan</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- START SCREEN -->
+  <div id="screen-start" class="screen active">
+    <div class="start-inner">
+      <div class="logo-pixel">⚔️</div>
+      <h1 class="game-title">PIXEL<br><span>DUNGEON</span></h1>
+      <p class="subtitle">— Gua Kegelapan —</p>
+      <div class="start-info">
+        <div class="info-row"><kbd>W A S D</kbd> Gerak</div>
+        <div class="info-row"><kbd>SPACE</kbd> Serang</div>
+        <div class="info-row"><kbd>E</kbd> Interaksi / Ambil</div>
+        <div class="info-row"><kbd>ESC</kbd> Pause</div>
+      </div>
+      <button id="btn-start" class="pixel-btn">▶ MULAI</button>
+      <div class="hi-score">Skor Tertinggi: <span id="display-hi">0</span></div>
+    </div>
+  </div>
+
+  <!-- GAME SCREEN -->
+  <div id="screen-game" class="screen">
+    <!-- HUD Top -->
+    <div class="hud-top">
+      <div class="hud-block">
+        <div class="hud-label">HP</div>
+        <div class="hp-bar-wrap"><div id="hp-bar" class="hp-bar"></div></div>
+        <div id="hp-text" class="hud-val">20/20</div>
+      </div>
+      <div class="hud-block center">
+        <div class="hud-label">LANTAI</div>
+        <div id="hud-floor" class="hud-val big">1</div>
+      </div>
+      <div class="hud-block right">
+        <div class="hud-label">SKOR</div>
+        <div id="hud-score" class="hud-val">0</div>
+      </div>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- HUD Bottom -->
+    <div class="hud-bot">
+      <div class="inv-slot" id="slot-weapon">⚔️<span>Pedang</span></div>
+      <div class="inv-slot" id="slot-potion">🧪<span>Potion x<span id="potion-count">2</span></span></div>
+      <div id="msg-box" class="msg-box"></div>
+      <div class="inv-slot" id="slot-gold">💰<span id="gold-count">0G</span></div>
+      <div class="inv-slot" id="slot-key">🗝️<span id="key-count">0</span></div>
+    </div>
+  </div>
+
+  <!-- PAUSE SCREEN -->
+  <div id="screen-pause" class="screen overlay">
+    <div class="pause-box">
+      <div class="pause-title">⏸ PAUSE</div>
+      <button id="btn-resume" class="pixel-btn small">▶ LANJUT</button>
+      <button id="btn-quit" class="pixel-btn small red">✕ KELUAR</button>
+    </div>
+  </div>
+
+  <!-- GAMEOVER SCREEN -->
+  <div id="screen-gameover" class="screen">
+    <div class="go-inner">
+      <div class="go-skull">💀</div>
+      <div class="go-title">KAMU MATI</div>
+      <div class="go-stats">
+        <div class="stat-row"><span>Lantai Dicapai</span><span id="go-floor">1</span></div>
+        <div class="stat-row"><span>Skor</span><span id="go-score">0</span></div>
+        <div class="stat-row"><span>Musuh Dibunuh</span><span id="go-kills">0</span></div>
+        <div class="stat-row hi"><span>🏆 Skor Terbaik</span><span id="go-hi">0</span></div>
+      </div>
+      <div id="go-record" class="new-rec hidden">🎉 REKOR BARU!</div>
+      <div class="go-btns">
+        <button id="btn-retry" class="pixel-btn small">↺ MAIN LAGI</button>
+        <button id="btn-menu" class="pixel-btn small red">⌂ MENU</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- WIN SCREEN -->
+  <div id="screen-win" class="screen">
+    <div class="go-inner">
+      <div class="go-skull">👑</div>
+      <div class="go-title" style="color:#f1c40f">MENANG!</div>
+      <p style="color:#aaa;font-size:0.85rem;margin:8px 0 16px">Kamu telah menaklukkan Gua Kegelapan!</p>
+      <div class="go-stats">
+        <div class="stat-row"><span>Skor Akhir</span><span id="win-score">0</span></div>
+        <div class="stat-row"><span>Musuh Dibunuh</span><span id="win-kills">0</span></div>
+      </div>
+      <button id="btn-winmenu" class="pixel-btn small" style="margin-top:20px">⌂ MENU</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
